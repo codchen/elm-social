@@ -1,0 +1,54 @@
+var _user$project$Main$mainPage = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Headline: '),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(model.headline),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Main$mainUpdate = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return {
+			ctor: '_Tuple2',
+			_0: _elm_lang$core$Native_Utils.update(
+				model,
+				{headline: _p0._0}),
+			_1: _elm_lang$core$Platform_Cmd$batch(
+				{ctor: '[]'})
+		};
+	});
+var _user$project$Main$emptyMain = {headline: 'hello'};
+var _user$project$Main$MainModel = function (a) {
+	return {headline: a};
+};
+var _user$project$Main$Headline = function (a) {
+	return {ctor: 'Headline', _0: a};
+};

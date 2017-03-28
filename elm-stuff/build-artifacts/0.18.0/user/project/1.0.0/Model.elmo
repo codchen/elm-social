@@ -1,0 +1,20 @@
+var _user$project$Model$emptyModel = {username: _elm_lang$core$Maybe$Nothing, password: _elm_lang$core$Maybe$Nothing, logged: false};
+var _user$project$Model$Model = F4(
+	function (a, b, c, d) {
+		return {location: a, username: b, password: c, logged: d};
+	});
+var _user$project$Model$InteropModel = F3(
+	function (a, b, c) {
+		return {username: a, password: b, logged: c};
+	});
+var _user$project$Model$Profile = {ctor: 'Profile'};
+var _user$project$Model$Main = {ctor: 'Main'};
+var _user$project$Model$Landing = {ctor: 'Landing'};
+var _user$project$Model$Password = function (a) {
+	return {ctor: 'Password', _0: a};
+};
+var _user$project$Model$Username = function (a) {
+	return {ctor: 'Username', _0: a};
+};
+var _user$project$Model$LogInRequest = {ctor: 'LogInRequest'};
+var _user$project$Model$NoOp = {ctor: 'NoOp'};

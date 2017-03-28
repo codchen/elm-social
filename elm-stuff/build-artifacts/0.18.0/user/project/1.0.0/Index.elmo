@@ -1,0 +1,210 @@
+var _user$project$Index$Model = F4(
+	function (a, b, c, d) {
+		return {location: a, landing: b, main: c, profile: d};
+	});
+var _user$project$Index$Flags = F3(
+	function (a, b, c) {
+		return {landing: a, main: b, profile: c};
+	});
+var _user$project$Index$ProfilePage = {ctor: 'ProfilePage'};
+var _user$project$Index$MainPage = {ctor: 'MainPage'};
+var _user$project$Index$LandingPage = {ctor: 'LandingPage'};
+var _user$project$Index$init = function (savedModel) {
+	var _p0 = savedModel;
+	if (_p0.ctor === 'Nothing') {
+		return {
+			ctor: '_Tuple2',
+			_0: {location: _user$project$Index$LandingPage, landing: _user$project$Landing$emptyLanding, main: _user$project$Main$emptyMain, profile: _user$project$Profile$emptyProfile},
+			_1: _elm_lang$core$Platform_Cmd$batch(
+				{ctor: '[]'})
+		};
+	} else {
+		var _p1 = _p0._0;
+		return {
+			ctor: '_Tuple2',
+			_0: {location: _user$project$Index$LandingPage, landing: _p1.landing, main: _p1.main, profile: _p1.profile},
+			_1: _elm_lang$core$Platform_Cmd$batch(
+				{ctor: '[]'})
+		};
+	}
+};
+var _user$project$Index$Profile = function (a) {
+	return {ctor: 'Profile', _0: a};
+};
+var _user$project$Index$Main = function (a) {
+	return {ctor: 'Main', _0: a};
+};
+var _user$project$Index$Landing = function (a) {
+	return {ctor: 'Landing', _0: a};
+};
+var _user$project$Index$update = F2(
+	function (msg, model) {
+		var _p2 = msg;
+		switch (_p2.ctor) {
+			case 'NoOp':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _elm_lang$core$Platform_Cmd$batch(
+						{ctor: '[]'})
+				};
+			case 'Landing':
+				var _p3 = A2(_user$project$Landing$landingUpdate, _p2._0, model.landing);
+				var landing = _p3._0;
+				var cmds = _p3._1;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{landing: landing}),
+					_1: A2(
+						_elm_lang$core$Platform_Cmd$map,
+						function (cmds) {
+							return _user$project$Index$Landing(cmds);
+						},
+						cmds)
+				};
+			case 'Main':
+				var _p4 = A2(_user$project$Main$mainUpdate, _p2._0, model.main);
+				var main = _p4._0;
+				var cmds = _p4._1;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{main: main}),
+					_1: A2(
+						_elm_lang$core$Platform_Cmd$map,
+						function (cmds) {
+							return _user$project$Index$Main(cmds);
+						},
+						cmds)
+				};
+			default:
+				var _p5 = A2(_user$project$Profile$profileUpdate, _p2._0, model.profile);
+				var profile = _p5._0;
+				var cmds = _p5._1;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{profile: profile}),
+					_1: A2(
+						_elm_lang$core$Platform_Cmd$map,
+						function (cmds) {
+							return _user$project$Index$Profile(cmds);
+						},
+						cmds)
+				};
+		}
+	});
+var _user$project$Index$view = function (model) {
+	var page = function () {
+		var _p6 = model.location;
+		switch (_p6.ctor) {
+			case 'LandingPage':
+				return A2(
+					_elm_lang$html$Html$map,
+					function (msg) {
+						return _user$project$Index$Landing(msg);
+					},
+					_user$project$Landing$landingPage(model.landing));
+			case 'MainPage':
+				return A2(
+					_elm_lang$html$Html$map,
+					function (msg) {
+						return _user$project$Index$Main(msg);
+					},
+					_user$project$Main$mainPage(model.main));
+			default:
+				return A2(
+					_elm_lang$html$Html$map,
+					function (msg) {
+						return _user$project$Index$Profile(msg);
+					},
+					_user$project$Profile$profilePage(model.profile));
+		}
+	}();
+	return page;
+};
+var _user$project$Index$main = _elm_lang$html$Html$programWithFlags(
+	{
+		init: _user$project$Index$init,
+		view: _user$project$Index$view,
+		update: _user$project$Index$update,
+		subscriptions: function (_p7) {
+			return _elm_lang$core$Platform_Sub$none;
+		}
+	})(
+	_elm_lang$core$Json_Decode$oneOf(
+		{
+			ctor: '::',
+			_0: _elm_lang$core$Json_Decode$null(_elm_lang$core$Maybe$Nothing),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$core$Json_Decode$map,
+					_elm_lang$core$Maybe$Just,
+					A2(
+						_elm_lang$core$Json_Decode$andThen,
+						function (landing) {
+							return A2(
+								_elm_lang$core$Json_Decode$andThen,
+								function (main) {
+									return A2(
+										_elm_lang$core$Json_Decode$andThen,
+										function (profile) {
+											return _elm_lang$core$Json_Decode$succeed(
+												{landing: landing, main: main, profile: profile});
+										},
+										A2(
+											_elm_lang$core$Json_Decode$field,
+											'profile',
+											A2(
+												_elm_lang$core$Json_Decode$andThen,
+												function (email) {
+													return A2(
+														_elm_lang$core$Json_Decode$andThen,
+														function (zipcode) {
+															return _elm_lang$core$Json_Decode$succeed(
+																{email: email, zipcode: zipcode});
+														},
+														A2(_elm_lang$core$Json_Decode$field, 'zipcode', _elm_lang$core$Json_Decode$string));
+												},
+												A2(_elm_lang$core$Json_Decode$field, 'email', _elm_lang$core$Json_Decode$string))));
+								},
+								A2(
+									_elm_lang$core$Json_Decode$field,
+									'main',
+									A2(
+										_elm_lang$core$Json_Decode$andThen,
+										function (headline) {
+											return _elm_lang$core$Json_Decode$succeed(
+												{headline: headline});
+										},
+										A2(_elm_lang$core$Json_Decode$field, 'headline', _elm_lang$core$Json_Decode$string))));
+						},
+						A2(
+							_elm_lang$core$Json_Decode$field,
+							'landing',
+							A2(
+								_elm_lang$core$Json_Decode$andThen,
+								function (logged) {
+									return A2(
+										_elm_lang$core$Json_Decode$andThen,
+										function (password) {
+											return A2(
+												_elm_lang$core$Json_Decode$andThen,
+												function (username) {
+													return _elm_lang$core$Json_Decode$succeed(
+														{logged: logged, password: password, username: username});
+												},
+												A2(_elm_lang$core$Json_Decode$field, 'username', _elm_lang$core$Json_Decode$string));
+										},
+										A2(_elm_lang$core$Json_Decode$field, 'password', _elm_lang$core$Json_Decode$string));
+								},
+								A2(_elm_lang$core$Json_Decode$field, 'logged', _elm_lang$core$Json_Decode$bool))))),
+				_1: {ctor: '[]'}
+			}
+		}));
+var _user$project$Index$NoOp = {ctor: 'NoOp'};

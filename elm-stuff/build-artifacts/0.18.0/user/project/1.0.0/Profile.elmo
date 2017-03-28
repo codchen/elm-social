@@ -1,0 +1,98 @@
+var _user$project$Profile$profilePage = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{ctor: '[]'},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Email: '),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(model.email),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{ctor: '[]'},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('Zipcode: '),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$div,
+								{ctor: '[]'},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text(model.zipcode),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};
+var _user$project$Profile$profileUpdate = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		if (_p0.ctor === 'Email') {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{email: _p0._0}),
+				_1: _elm_lang$core$Platform_Cmd$batch(
+					{ctor: '[]'})
+			};
+		} else {
+			return {
+				ctor: '_Tuple2',
+				_0: _elm_lang$core$Native_Utils.update(
+					model,
+					{zipcode: _p0._0}),
+				_1: _elm_lang$core$Platform_Cmd$batch(
+					{ctor: '[]'})
+			};
+		}
+	});
+var _user$project$Profile$emptyProfile = {email: '', zipcode: ''};
+var _user$project$Profile$ProfileModel = F2(
+	function (a, b) {
+		return {email: a, zipcode: b};
+	});
+var _user$project$Profile$Zipcode = function (a) {
+	return {ctor: 'Zipcode', _0: a};
+};
+var _user$project$Profile$Email = function (a) {
+	return {ctor: 'Email', _0: a};
+};
